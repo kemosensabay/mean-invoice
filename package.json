@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
+  },
+    "engines": {
+    "node": "14.15.3"
   },
   "dependencies": {
     "compression": "^1.7.4",
