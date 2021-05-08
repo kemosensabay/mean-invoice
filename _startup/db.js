@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
-const config = require('config');
+// const config = require('config');
 
 module.exports = function () {
-   const db = config.get('db');
+   // const db = config.get('db');
+
+  const db = process.env.invoice_DB;
 
   mongoose.set("useCreateIndex", true);
   mongoose.set("useNewUrlParser", true);
