@@ -1,28 +1,22 @@
 const express = require("express");
 const path = require("path");
-// const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const logger = require("morgan");
+// const logger = require("morgan");
 // const cors = require("cors");
 const createError = require("http-errors");
 const app = express();
 
-// const indexRouter = require("./_routes/index");
 const invoicesRouter = require("./_routes/invoices");
-
-// const catchAllRouter = require("./_routes/catchall");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// app.use(bodyParser.json());
-app.use(logger("tiny"));
+// app.use(logger("tiny"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-// app.use("/images", express.static(path.join(__dirname, "_images")));
 
 // Serve UI as static files
 app.use("/", express.static(path.join(__dirname, "public/dist/")));
@@ -43,9 +37,6 @@ app.use("/invoices", invoicesRouter);
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "public/dist/", "index.html"));
 });
-
-// app.use("/", indexRouter);
-// app.use("**", catchAllRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
